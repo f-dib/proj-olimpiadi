@@ -39,8 +39,9 @@ export default{
             <input 
               v-model="searchQuery" 
               @input="applyFilter" 
-              placeholder="Enter country" 
-              type="text" 
+              placeholder="Cerca..." 
+              type="text"
+              class="rounded-4 ps-2 border-secondary" 
             />
         </div>
 
@@ -48,6 +49,7 @@ export default{
             <thead>
                 <tr>
                     <th scope="col">Posizione</th>
+                    <th scope="col"></th>
                     <th scope="col">Nazionalità</th>
                     <th scope="col">Oro</th>
                     <th scope="col">Argento</th>
@@ -58,6 +60,11 @@ export default{
             <tbody v-for="medalData in filteredResults">
                 <tr>
                     <th scope="col">{{medalData.rank}}</th>
+                    <th scope="col" class="align-middle px-0">
+                      <div class="flags w-100 d-flex justify-content-center">
+                        <img src="../assets/done/alb.svg" class="img-fluid" alt="Olympic Logo" />
+                      </div>
+                    </th>
                     <th scope="col">{{medalData.organisation.description}}</th>
                     <th scope="col">{{medalData.gold}}</th>
                     <th scope="col">{{medalData.silver}}</th>

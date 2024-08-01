@@ -15,9 +15,7 @@ export default{
 
 <template>
   <div class="text-center p-4">
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/images.png" class="logo vue" alt="Vue logo" />
-    </a>
+    <img src="./assets/images.png" alt="Olympic Logo" />
   </div>
   <Home></Home>
 </template>
