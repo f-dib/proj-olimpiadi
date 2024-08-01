@@ -44,30 +44,28 @@ export default{
             />
         </div>
 
-        <div>
-            <table class="table text-center">
-                <thead>
-                    <tr>
-                        <th scope="col">Posizione</th>
-                        <th scope="col">Nazionalità</th>
-                        <th scope="col">Oro</th>
-                        <th scope="col">Argento</th>
-                        <th scope="col">Bronzo</th>
-                        <th scope="col">Totale</th>
-                    </tr>
-                </thead>
-                <tbody v-for="medalData in filteredResults">
-                    <tr>
-                        <th scope="col">{{medalData.rank}}</th>
-                        <th scope="col">{{medalData.organisation.description}}</th>
-                        <th scope="col">{{medalData.gold}}</th>
-                        <th scope="col">{{medalData.silver}}</th>
-                        <th scope="col">{{medalData.bronze}}</th>
-                        <th scope="col">{{medalData.total}}</th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Posizione</th>
+                    <th scope="col">Nazionalità</th>
+                    <th scope="col">Oro</th>
+                    <th scope="col">Argento</th>
+                    <th scope="col">Bronzo</th>
+                    <th scope="col">Totale</th>
+                </tr>
+            </thead>
+            <tbody v-for="medalData in filteredResults">
+                <tr>
+                    <th scope="col">{{medalData.rank}}</th>
+                    <th scope="col">{{medalData.organisation.description}}</th>
+                    <th scope="col">{{medalData.gold}}</th>
+                    <th scope="col">{{medalData.silver}}</th>
+                    <th scope="col">{{medalData.bronze}}</th>
+                    <th scope="col">{{medalData.total}}</th>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
