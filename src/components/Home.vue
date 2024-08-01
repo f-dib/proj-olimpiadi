@@ -6,7 +6,8 @@ export default{
       return {
           store: [],
           filteredResults: [],
-          searchQuery: ''
+          searchQuery: '',
+          flags: []
       }
     },
   created() {
@@ -28,6 +29,11 @@ export default{
           item.gender === 'TOT' &&
           item.organisation.description.includes(formattedQuery)
         ).sort((a, b) => a.rank - b.rank);
+      },
+      olympicFlag(currentFlag) {
+        let flag = currentFlag.toLowerCase()
+
+        return `src/assets/done/${flag}.svg`;
       }
     }
 }
@@ -58,18 +64,18 @@ export default{
                 </tr>
             </thead>
             <tbody v-for="medalData in filteredResults">
-                <tr>
-                    <th scope="col">{{medalData.rank}}</th>
-                    <th scope="col" class="align-middle px-0">
-                      <div class="flags w-100 d-flex justify-content-center">
-                        <img src="../assets/done/alb.svg" class="img-fluid" alt="Olympic Logo" />
+                <tr class="fw-bold">
+                    <td scope="col">{{medalData.rank}}</td>
+                    <td scope="col" class="align-middle flag-cell">
+                      <div class="flags d-flex justify-content-center align-items-center">
+                        <img :src="olympicFlag(medalData.organisation.code)" class="img-fluid" alt="Olympic Logo" />
                       </div>
-                    </th>
-                    <th scope="col">{{medalData.organisation.description}}</th>
-                    <th scope="col">{{medalData.gold}}</th>
-                    <th scope="col">{{medalData.silver}}</th>
-                    <th scope="col">{{medalData.bronze}}</th>
-                    <th scope="col">{{medalData.total}}</th>
+                    </td>
+                    <td scope="col">{{medalData.organisation.description}}</td>
+                    <td scope="col">{{medalData.gold}}</td>
+                    <td scope="col">{{medalData.silver}}</td>
+                    <td scope="col">{{medalData.bronze}}</td>
+                    <td scope="col">{{medalData.total}}</td>
                 </tr>
             </tbody>
         </table>
